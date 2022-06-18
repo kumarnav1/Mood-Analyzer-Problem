@@ -1,0 +1,2 @@
+com/bl/mood_analyser_test/MoodAnalyserTest.java
+ com.bl.mood_analyser_test.MoodAnalyserTest
