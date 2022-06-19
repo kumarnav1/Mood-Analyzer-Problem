@@ -8,7 +8,6 @@ public class MoodAnalyserTest {
 
     @Test
     void givenMessage_WhenSad_ShouldReturnSad() throws MoodAnalysisException {
-
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Sad Mood");
         String mood = moodAnalyser.analyseMood();
         Assert.assertEquals("SAD", mood);
@@ -16,7 +15,6 @@ public class MoodAnalyserTest {
 
     @Test
     void givenMessage_WhenNotSad_ShouldReturnHappy() throws MoodAnalysisException {
-
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Happy Mood");
         String mood = moodAnalyser.analyseMood();
         Assert.assertEquals("HAPPY", mood);
@@ -24,7 +22,6 @@ public class MoodAnalyserTest {
 
     @Test
     void givenNullMoodShouldReturnHappy() {
-
         MoodAnalyser moodAnalyser = new MoodAnalyser(null);
         String mood = null;
         try {
@@ -39,12 +36,12 @@ public class MoodAnalyserTest {
 
     @Test
     void givenNullMoodShouldThrowException() {
-
-        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+        MoodAnalyser moodAnalyser = new MoodAnalyser("");
         try {
             moodAnalyser.analyseMood();
         } catch (MoodAnalysisException e) {
-            Assert.assertEquals("Please Enter Proper Message", e.getMessage());
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_EMPTY, e.type);
+            e.printStackTrace();
         }
     }
 }
