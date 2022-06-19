@@ -11,7 +11,7 @@ public class MoodAnalyser {
         this.message = message;
     }
 
-    public String analyseMood() {
+    public String analyseMood() throws MoodAnalysisException {
 
         try {
             if (this.message.contains("Sad"))
@@ -19,7 +19,7 @@ public class MoodAnalyser {
             else
                 return "HAPPY";
         } catch (NullPointerException e) {
-            return "HAPPY";
+            throw new MoodAnalysisException("Please Enter Proper Message");
         }
     }
 }
