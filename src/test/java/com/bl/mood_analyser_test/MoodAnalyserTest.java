@@ -36,4 +36,15 @@ public class MoodAnalyserTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    void givenNullMoodShouldThrowException() {
+
+        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+        try {
+            moodAnalyser.analyseMood();
+        } catch (MoodAnalysisException e) {
+            Assert.assertEquals("Please Enter Proper Message", e.getMessage());
+        }
+    }
 }
